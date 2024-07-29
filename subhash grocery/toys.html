@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toys</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            background: url('background.avif') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        header {
+            background-color: #2874F0; /* Similar to Flipkart's blue */
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .cart-symbol {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        main {
+            padding: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .product-item {
+            background-color: #fff;
+            padding: 1em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 200px;
+        }
+
+        .product-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+
+        .product-item h2 {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+        }
+
+        .product-item p {
+            color: #777;
+            margin: 0.5em 0;
+        }
+
+        .product-item button {
+            background-color: #2874F0;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-item button:hover {
+            background-color: #1E63D0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Toys</h1>
+        <div class="cart-symbol" onclick="navigateToCart()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z"/>
+                <path d="M7.5 18c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm9 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zM21 5H5.8l-.9-3.6c-.1-.4-.5-.8-.9-.8H2c-.6 0-1 .4-1 1s.4 1 1 1h1.1l2.1 8.5c-.1 0-.1.1-.2.1H5c-.6 0-1 .4-1 1s.4 1 1 1h1.6c-.2.4-.3.9-.5 1.4-.2.3-.4.6-.7.9-.4.4-.8.8-1.3 1.1v.1c0 .1-.1.1-.1.2-.1.1-.1.2-.2.3l-.4.4c-.2.2-.2.5-.2.7s.3.5.5.7c.2.2.5.3.7.3.2 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.1-.4-.3-.5-.5s-.3-.5-.4-.7c-.2-.3-.3-.6-.5-.9-.4-.5-.7-1-1-1.5-.5-.6-1-1.2-1.4-1.8-.4-.6-.7-1.2-.9-1.8-.2-.6-.3-1.2-.3-1.9 0-1.3.5-2.4 1.5-3.3C7.5.6 8.6 0 10 0c1.3 0 2.4.5 3.3 1.5.9 1 .9 2.1.9 3.3 0 .7-.1 1.3-.3 1.9-.2.6-.5 1.2-.9 1.8-.4.6-.9 1.2-1.4 1.8-.5.6-1 1.2-1.5 1.8-.4.5-.7 1-1 1.5-.1.1-.2.3-.4.7-.2.2-.4.5-.5.7-.2.2-.3.5-.3.7s.1.5.3.7c.2.2.5.3.7.3.2 0 .5-.1.7-.3l.4-.4c.1-.1.2-.2.2-.3 0-.1.1-.1.1-.2v-.1c.5-.3.9-.7 1.3-1.1.3-.3.5-.6.7-.9.2-.3.4-.7.5-1.1H19c.6 0 1-.4 1-1s-.4-1-1-1z"/>
+            </svg>
+            <div class="cart-count" id="cart-count">0</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="images/toys kitchen.webp" alt="Toy 1">
+                <h2>kitchen cook</h2>
+                <p>Price: ₹100</p>
+                <button onclick="addToCart('Toy 1', 100)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="images/van.webp" alt="Toy 2">
+                <h2>van</h2>
+                <p>Price: ₹450</p>
+                <button onclick="addToCart('Toy 2', 450)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="images/soft-toys-teddy-bear-42-sterling-original-imagzhfc9fybyp4f.webp" alt="Toy 2">
+                <h2>Teddy</h2>
+                <p>Price: ₹550</p>
+                <button onclick="addToCart('Toy 3', 550)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="images/crane.jpeg" alt="Toy 2">
+                <h2>crane</h2>
+                <p>Price: ₹650</p>
+                <button onclick="addToCart('Toy 4', 650)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="images/mission-tech-iron-man-avengers-original-imaf3eqya3gehurg.webp" alt="Toy 2">
+                <h2>avengers</h2>
+                <p>Price: ₹1150</p>
+                <button onclick="addToCart('Toy 5', 1150)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="images/air.jpeg" alt="Toy 2">
+                <h2>air teddy</h2>
+                <p>Price: ₹1150</p>
+                <button onclick="addToCart('Toy 5', 1150)">Add to Cart</button>
+            </div>
+            <!-- Add more product items as needed -->
+        </div>
+    </main>
+
+    <script>
+        // Function to add item to cart
+        function addToCart(productName, price) {
+            var item = {
+                productName: productName,
+                price: price,
+                quantity: 1
+            };
+
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            var existingItem = cartItems.find(function(cartItem) {
+                return cartItem.productName === productName;
+            });
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cartItems.push(item);
+            }
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            updateCartCount();
+            alert('Item added to cart!');
+        }
+
+        // Function to update cart count in cart symbol
+        function updateCartCount() {
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            var cartCountElement = document.getElementById('cart-count');
+            cartCountElement.textContent = cartItems.length;
+        }
+
+        // Function to navigate to cart page
+        function navigateToCart() {
+            window.location.href = 'cart.html';
+        }
+
+        // Initialize cart count on page load
+        updateCartCount();
+    </script>
+</body>
+</html>

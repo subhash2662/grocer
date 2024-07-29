@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Delivery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.avif') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        header {
+            background-color: #2874F0; /* Similar to Flipkart's blue */
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+
+        #departments {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .department {
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 1em;
+            padding: 1em;
+            width: 250px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .department img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .department:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .department h3 {
+            margin: 0.5em 0 0 0;
+            color: #2874F0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Grocery Delivery</h1>
+    </header>
+
+    <main>
+        <section id="departments">
+            <h2>Select a Department</h2>
+            <div class="department" onclick="navigateTo('baby_care.html')">
+                <img src="images/baby_care.jpg" alt="Baby Care">
+                <h3>Baby Care</h3>
+            </div>
+            <div class="department" onclick="navigateTo('toys.html')">
+                <img src="images/toys.jpg" alt="Toys">
+                <h3>Toys</h3>
+            </div>
+            <div class="department" onclick="navigateTo('home_grocery.html')">
+                <img src="images/home_grocery.webp" alt="Home Grocery">
+                <h3>Home Grocery</h3>
+            </div>
+            <div class="department" onclick="navigateTo('pulses.html')">
+                <img src="images/pulses.jpeg" alt="Pulses">
+                <h3>Pulses</h3>
+            </div>
+           
+            <div class="department" onclick="navigateTo('fruits.html')">
+                <img src="images/fruits.jpeg" alt="Fruits">
+                <h3>Fruits</h3>
+            </div>
+            <div class="department" onclick="navigateTo('vegetables.html')">
+                <img src="images/vegetables.jpg" alt="Vegetables">
+                <h3>Vegetables</h3>
+            </div>
+            <div class="department" onclick="navigateTo('snacks.html')">
+                <img src="images/snacks.jpg" alt="Snacks">
+                <h3>Snacks</h3>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

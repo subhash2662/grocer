@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: url('background.avif') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        .confirmation {
+            margin-top: 2em;
+            padding: 2em;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .confirmation h2 {
+            color: #333;
+        }
+
+        .confirmation p {
+            color: #777;
+            margin-bottom: 1em;
+        }
+
+        .confirmation .details {
+            text-align: left;
+        }
+
+        .confirmation .details p {
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation">
+        <h2>Order Confirmation</h2>
+        <p>Order confirmed! Thank you for shopping with Grand Grocer!</p>
+        
+        <div class="details">
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <p><strong>Address:</strong> <span id="address"></span></p>
+            <p><strong>Payment Method:</strong> <span id="paymentMethod"></span></p>
+            <p><strong>Total Bill:</strong> ₹<span id="totalBill"></span></p>
+            <p>Expected delivery in 2 hours.</p>
+            <p>Visit Again!</p>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve order details from localStorage
+        var name = localStorage.getItem('orderName');
+        var address = localStorage.getItem('orderAddress');
+        var paymentMethod = localStorage.getItem('orderPaymentMethod');
+        var totalBill = localStorage.getItem('orderTotalBill');
+
+        // Display order details
+        document.getElementById('name').textContent = name;
+        document.getElementById('address').textContent = address;
+        document.getElementById('paymentMethod').textContent = paymentMethod;
+        document.getElementById('totalBill').textContent = totalBill;
+
+        // Clear localStorage after displaying details
+        localStorage.removeItem('orderName');
+        localStorage.removeItem('orderAddress');
+        localStorage.removeItem('orderPaymentMethod');
+        localStorage.removeItem('orderTotalBill');
+    </script>
+</body>
+</html>
